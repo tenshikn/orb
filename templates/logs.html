@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+
+{% block title %} {{title}} {% endblock %}
+
+{% block main %}
+
+  <div class="row">
+    <div class="col-sm-3">
+      <img class="img-thumbnail" id="log_cover">
+      <div>
+        <h1 id='title' class='font-weight-bold'></h1>
+      </div>
+      <div>
+        <a class="nav-link fas fa-plus fa-lg" href="/new-topic"></a>
+      </div>
+    </div>
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-7">
+    {% for row in entries %}
+        <div class="card">
+            <div class="card-header" style='height:30px; text-align:left;'>
+                <h6>{{row.date_added}}</h6>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title font-weight-bold">{{row.entry_heading}}</h5>
+                <hr>
+                <h5 class="card-text font-italic"><small>{{row.entry}}</small></h5>
+            </div>
+        </div>
+        <div class="pt-1">
+        </div>
+    {% endfor %}
+      <div class="list-group form-select suggestions">
+      </div>
+    </div>
+  </div>
+  <div class="pt-4">
+    <div style="text-align: left;">
+    </div>
+  </div>
+<script>
+  let data = JSON.parse(sessionStorage.getItem('photo'));
+  //let title = JSON.parse(sessionStorage.getItem('title'));
+  document.querySelector('#log_cover').src = data;
+  //document.querySelector('#title').innerHTML = title;
+</script>
+{% endblock %}

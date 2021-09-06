@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+
+        <!-- http://getbootstrap.com/docs/4.5/ -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+        <!-- https://favicon.io/emoji-favicons/ -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
+        <link rel="manifest" href="/static/site.webmanifest">
+
+        <!-- fontawesome -->
+        <script src="https://kit.fontawesome.com/850299c504.js" crossorigin="anonymous"></script>
+        <link href="/static/styles.css" rel="stylesheet">
+
+        <!-- http://getbootstrap.com/docs/4.5/ -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+        <title>ORB: {% block title %}{% endblock %}</title>
+
+    </head>
+
+    <body class="bg-image">
+        {% if session.user_id %}
+            <nav class="navbar navbar-expand-md navbar-light bg-light border">
+                <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbar" data-toggle="collapse" type="button">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="nav-link navbar-brand" href="/home"><img src="/static/favicon-32x32.png"></a>
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="navbar-nav mr-auto mt-1">
+                        <li class="nav-item"><a class="nav-link fas fa-folder-plus fa-lg" href="/new-topic"></a></li>
+                        <!--<li class="nav-item"><a class="nav-link fas fa-book-open fa-lg" href="/entry"></a></li> -->
+                    </ul>
+                    <ul class="navbar-nav ml-auto mt-2">
+                        <li class="nav-item"><a class="nav-link fas fa-sign-out-alt fa-lg" href="/logout"></a></li>
+                    </ul>
+                </div>
+
+            </nav>
+        {% endif %}
+        {% if get_flashed_messages() %}
+            <header>
+                <div class="alert alert-success border" role="alert">
+                    <h4 class="alert-heading">{{ get_flashed_messages() | join(" ") }}</h4>
+                    <p>You have successfully signed up.</p>
+                      <hr>
+                    <p class="mb-0">You can now login.</p>
+                </div>
+            </header>
+        {% endif %}
+        <main class="container-fluid pt-5">
+        {% block main %}{% endblock %}
+        </main>
+    </body>
+    <script src="/static/validate.js"></script>
+    <script src="/static/blur.js"></script>
+</html>

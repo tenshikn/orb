@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block title %} Home {% endblock %}
+{% block main %}
+<div class="row">
+    <div class="col-sm-2">
+        <nav class="navbar navbar-expand-md">
+    <button class="navbar-toggler navbar-dark bg-dark" data-toggle="collapse" data-target="#vault">
+        <span></span>
+    </button>
+    <br>
+    <div class="collapse navbar-collapse" id="vault">
+        <ul class="nav flex-column navbar-nav">
+        {% for row in data %}
+        <li class="nav-item">
+            <form action="/home?title={{row.lower()}}" method="post">
+                <input type="image" class="img-thumbnail" value="{{row}}" style="width:175px;" src="data:image; base64, {{data[row]}}" onclick="sessionStorage.setItem('photo', JSON.stringify(this.src));
+                 sessionStorage.setItem('title', JSON.stringify(this.value));">
+            </form>
+        </li>
+        {% endfor %}
+        </ul>
+        </div>
+        </nav>
+    </div>
+    <div class="col-sm-7 container pt-2">
+        {% for row in entries %}
+        <div class="card">
+            <div class="card-header" style='height:30px; text-align:left;'>
+                <h6>{{row.date_added}}</h1>
+            </div>
+            <div class="card-body">
+                 <h5 class="card-title font-weight-bold font-italic">{{row.entry_heading}}</h5>
+                 <hr>
+                 <h5 class="card-text font-italic"><small>{{row.entry}}</small></h5>
+            </div>
+        </div>
+        <div class="pt-2">
+        </div>
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+<div class="container-fluid pt-5">
+    <img src="static/slayer.jpg" class="rounded">
+        <svg height="20%" width="20%">
+          <line x1="0" y1="0" x2="200" y2="200" style="stroke:rgb(0,0,0);stroke-width:2" />
+        </svg>
+    <img src="static/blood.png" class="rounded">
+    </div>
+

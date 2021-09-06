@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+
+{% block title %} Log new knowledge, share it {% endblock %}
+
+
+{% block main %}
+<div class="card float-md-right" style="height:500px;">
+  <div class="card-body" id="login">
+    <form action='/' method='post' class="needs-validation pt-3" spellcheck="false" novalidate>
+      <div class="form-group">
+        <input class="form-control w-100" required name="username" autofocus autocomplete="off" placeholder="Username" type="text">
+      </div>
+      <div class="form-group">
+        <input class="form-control w-100" name="password" required autocomplete="off" placeholder="Password" type="password">
+      </div>
+      <div class="pt-3">
+        <button class="btn btn-primary" id="login" type="submit">Login</button>
+      </div>
+    </form>
+    <div class="pt-3">
+      <button class="btn btn-success" id='signup' type="submit">Sign Up</button>
+    </div>
+  </div>
+</div>
+<script>
+        // Change form to Signup onclick of signup button
+        let signup = document.querySelector('#signup');
+        signup.addEventListener('click', function()
+        {
+          // AJAX call
+          $.get('/signing', function(html)
+          {
+            document.querySelector('#login').innerHTML = html;
+
+            let first_name = document.querySelector("#first");
+            let last_name = document.querySelector("#last");
+            let username = document.querySelector("#username");
+
+            // Autofocus first input field after reload
+            first_name.focus();
+
+            // Populate username input field with first and last name if active element
+            username.addEventListener('focus', function()
+            {
+              if (first_name.value && last_name.value && !username.value)
+              {
+                username.value = first_name.value.toLowerCase() + '_' + last_name.value.toLowerCase();
+              }
+
+            })
+
+            let form = document.querySelector(".needs-validation");
+            let password = document.querySelector("#password");
+            let confirmation = document.querySelector("#confirmation");
+
+            form.addEventListener("submit", function(event)
+            {
+              if (!form.checkValidity())
+              {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+
+              if (password.value != confirmation.value)
+              {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+
+              form.classList.add('was-validated');
+            });
+});
+        });
+</script>
+{% endblock %}
