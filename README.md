@@ -1,6 +1,6 @@
 # ORB
 #### Video Demo:  https://youtu.be/wBvbt49rL5A
-#### Description: A web application to log and store new knowledge
+#### Description: A web application to log and store new knowledge.
 
 ### Background
 We often come across new knowledge and concepts when going about our daily activities but fail to recall it and its source when the need arises because we did not deliberately put them down or decided it was not
