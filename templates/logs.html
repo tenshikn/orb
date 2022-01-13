@@ -9,9 +9,6 @@
     <div class="col-sm-3">
       <img class="img-thumbnail" id="log_cover">
       <div>
-        <h1 id='title' class='font-weight-bold'></h1>
-      </div>
-      <div>
         <a class="nav-link fas fa-plus fa-lg" href="/new-topic"></a>
       </div>
     </div>
@@ -44,6 +41,5 @@
   let data = JSON.parse(sessionStorage.getItem('photo'));
   //let title = JSON.parse(sessionStorage.getItem('title'));
   document.querySelector('#log_cover').src = data;
-  //document.querySelector('#title').innerHTML = title;
 </script>
 {% endblock %}

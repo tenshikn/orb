@@ -48,7 +48,7 @@ def wiki_search(title):
 
     # Parse JSON data
     response = response.json()
-    #print(response)
+    # print(response)
 
     response = response['query']['pages']
     search_response = []
@@ -59,6 +59,8 @@ def wiki_search(title):
         search_details['description'] = search_details['terms']['description'].pop() if 'terms' in search_details else None
         search_details.pop('terms') if 'terms' in search_details else None
         search_response.append(search_details)
+
+    # print(search_response)
 
     # return sorted search response by index
     return sorted(search_response, key=lambda x: x['index'])

@@ -23,6 +23,7 @@
         <!-- http://getbootstrap.com/docs/4.5/ -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.js"></script>
 
         <title>ORB: {% block title %}{% endblock %}</title>
 
@@ -34,7 +35,7 @@
                 <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbar" data-toggle="collapse" type="button">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <a class="nav-link navbar-brand" href="/home"><img src="/static/favicon-32x32.png"></a>
+                <a class="nav-link navbar-brand" href="/home"><img alt="orb" src="/static/favicon-32x32.png"></a>
                 <div class="collapse navbar-collapse" id="navbar">
                     <ul class="navbar-nav mr-auto mt-1">
                         <li class="nav-item"><a class="nav-link fas fa-folder-plus fa-lg" href="/new-topic"></a></li>
@@ -60,7 +61,7 @@
         <main class="container-fluid pt-5">
         {% block main %}{% endblock %}
         </main>
+        <script src="/static/validate.js"></script>
+        <script src="/static/focus.js"></script>
     </body>
-    <script src="/static/validate.js"></script>
-    <script src="/static/blur.js"></script>
 </html>

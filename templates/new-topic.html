@@ -73,7 +73,7 @@
           suggestions += `<button type="button" id=${data[dict]["index"]} class="suggestion list-group-item">
                             <div class="row">
                               <div class="col-sm-3 thumbnail">
-                                <img style="height:100px;" class="img-thumbnail" src=${data[dict]["original"]["source"]}>
+                                <img style="height:100px;" class="img-thumbnail lazyload" src=${data[dict]["original"]["source"]}>
                               </div>
                               <div class="col-sm-8">
                                 <figcaption class="font-weight-bold font-italic blockquote">
@@ -87,6 +87,8 @@
                           </button>`;
           search_list.innerHTML = suggestions;
         }
+        // https://github.com/tuupola/lazyload
+        lazy_load();
       });
     });
 
