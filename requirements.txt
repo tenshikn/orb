@@ -1,6 +1,5 @@
 Flask
 Flask-Session
-sqlite3
 cs50
 requests
 gunicorn
