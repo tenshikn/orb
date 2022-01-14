@@ -12,6 +12,7 @@ from tempfile import mkdtemp
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
 from werkzeug.security import check_password_hash, generate_password_hash
 
+from cs50 import SQL
 from helpers import apology, login_required, wiki_search
 
 # Configure application
@@ -47,6 +48,12 @@ connection.row_factory = sqlite3.Row
 
 # Creating cursor object to enable databasae executions
 db = connection.cursor()
+
+# Postgresql
+uri = os.getenv("DATABASE_URL")
+if uri.startswith("postgres://"):
+    uri = uri.replace("postgres://", "postgresql://")
+db = SQL(uri)
 
 
 @app.route('/', methods=['GET', 'POST'])
