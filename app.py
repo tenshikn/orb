@@ -49,13 +49,12 @@ connection.row_factory = sqlite3.Row
 # Creating cursor object to enable databasae executions
 db = connection.cursor()
 
-"""
+
 # Postgresql
 uri = os.getenv("DATABASE_URL")
 if uri.startswith("postgres://"):
     uri = uri.replace("postgres://", "postgresql://")
 db = SQL(uri)
-"""
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route("/login", methods=["GET", "POST"])
