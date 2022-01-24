@@ -3,19 +3,25 @@
 #### Description: A web application to log and store new knowledge.
 
 ### Background
-We often come across new knowledge and concepts when going about our daily activities but fail to recall it and its source when the need arises because we did not deliberately put them down or decided it was not
-important. ORB is essentially a web application that allows users to add knowledge summaries (entries) to a wide array of topics (the vault). Through nicely organized images and widget entries,
-learners can quickly add to and view already existing entries for their own future reference.
+We often come across new knowledge and concepts when going about our daily activities but fail to recall it and its source when the need arises. ORB tries to solve this problem. ORB is essentially a web application that allows users to add knowledge summaries (entries) to a wide array of topics (the vault). Through nicely organized images and widget entries, learners can quickly add to and view already existing entries for their own future reference.
 
-Upon logging in, which requires a username and a password, users can see at a glance all existing entries and the cpntents of their vault. Users can add to their vault collection via a search
+Upon logging in, which requires a username and a password, users can see at a glance all existing entries and contents of their vault. Users can add to their vault collection via a search
 and immediately add an entry or decide to do so at a later time. Users can also add to existing entries and view all entries on a particular topic by just clicking on the image representation.
 
-Users should be able to perform the necessary tasks on whatever device they are currently on and as such the software was built to be responsive and usable on all screen sizes.
+Users should be able to perform the necessary tasks on whatever device they are currently on and as such the software is built to be responsive and usable on all screen sizes.
 
-### Running
-Start flask's built-in web server inside /project and visit the output URL to see the application in action.
+### Installation and Running
+
+```
+pip install pip
+pip -r requiremnets.txt
+flask run
+```
+And visit the output url to see the application in action!
 
 ### Understanding
+
+
 ## application.py
 This file firstly imports necessary libraries and helper functions. After the application configuration
 which includes app sessions and the likes, the file connects to orb.db: a disk-based database using python's sqlite3 module. Implementations of a bunch of routes for the app follows which includes an index and login route
@@ -128,14 +134,17 @@ These templates are returned and displayed to the user based on certain conditio
           to a particular topic without need to query orb.db
     - apology.html
         - This HTML file is displayed by the apology function in helpers.py
+
 - Inside static/ exists the necessary static files needed to style the template files
     - focus.js
       - This JavaScript function's sole purpose in life is to focus on an image that is hovered
     - validate.js
-      - This JavaScript function's purpose in life is to prevent form submissions if the necessary fields are empty
+      - This JavaScript function's purpose in life is to prevent form submissions if the required form fields are empty
 
 #### The Future
 Below is a possible list of features that will be added to ORB down the line
 - Visually stunning links between two or more vault members if knowledge summaries are similar
 - Dark Mode
 - PWA
+
+And you can also help out in any other way you can!
