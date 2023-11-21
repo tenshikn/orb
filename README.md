@@ -14,7 +14,7 @@ Users should be able to perform the necessary tasks on whatever device they are 
 
 ```
 pip install pip
-pip -r requirements.txt
+pip install -r requirements.txt
 flask run
 ```
 And visit the output url to see the application in action!
