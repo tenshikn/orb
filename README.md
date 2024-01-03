@@ -13,7 +13,7 @@ Users should be able to perform the necessary tasks on whatever device they are 
 ### Installation and Running
 
 ```
-pip install pip
+sudo easy_install pip
 pip install -r requirements.txt
 flask run
 ```
